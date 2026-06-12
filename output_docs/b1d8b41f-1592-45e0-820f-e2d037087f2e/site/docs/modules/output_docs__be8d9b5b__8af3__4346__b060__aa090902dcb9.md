@@ -1,0 +1,37 @@
+# Module — `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9`
+
+_Domain hint: `Code analysis / repository documentation artifacts (analysis run output for a quadtree-geolocation project)`_
+
+## Responsibility
+
+This module is an isolated documentation output directory containing the full analysis artifact set for a single pipeline run (ID `be8d9b5b-8af3-4346-b060-aa090902dcb9`) over the `quadtree-geolocation` repository. It collects the sequential outputs of an end-to-end code-analysis workflow: run metadata (`00-run-summary`), the consolidated selected result (`01-selected-result`), ingestion profiling (`02-ingestion`), static analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics inference (`05-business-semantics`), the final functional specification (`06-documentation`), a diagram-generation status report (`07-diagrams`, noting diagrams were skipped), and a critic/quality verification report (`08-critic`). Together these files form a layered narrative moving from raw repo signals up through architecture, domain semantics, and quality assessment for downstream consumption.
+
+## Public surface
+
+- `00-run-summary.md`
+- `01-selected-result.md`
+- `02-ingestion.md`
+- `03-static-analysis.md`
+- `04-runtime-inference.md`
+- `05-business-semantics.md`
+- `06-documentation.md`
+- `07-diagrams.md`
+- `08-critic.md`
+
+## Files in this module
+
+| File | Purpose | Exports |
+|---|---|---|
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/00-run-summary.md` | This file records metadata about an analysis execution run, documenting the run ID, repository UR… | `Run ID`, `Repo URL`, `Branch`, … (+2) |
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/01-selected-result.md` | This is a comprehensive analysis report file that consolidates multiple dimensions of analysis fo… | `Tech Stack Profile`, `Module Map`, `Entry Points`, … (+18) |
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/02-ingestion.md` | This file documents the ingestion analysis report of a repository, providing structured metadata… | `Tech Stack Profile`, `Module Map`, `Entry Points`, … (+9) |
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/03-static-analysis.md` | This file is a static analysis report documenting the architecture, code structure, and quality f… | `Symbol Graph`, `Dependency Graph`, `Api Catalog`, … (+17) |
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/04-runtime-inference.md` | This file documents runtime behavior inference including technical sequence flows, state transiti… | `Technical Sequence Flows`, `State Transitions`, `End To End Transaction Paths`, … (+7) |
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/05-business-semantics.md` | This file is a business semantics analysis document that infers high-level business concepts (pur… | `System Purpose`, `Business Capabilities By Domain`, `Business Capabilities`, … (+8) |
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/06-documentation.md` | This file is a comprehensive functional specification document that describes the system from a b… | `Executive Summary`, `Actors`, `Business Capabilities`, … (+6) |
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/07-diagrams.md` | This file documents the absence of generated diagrams for a specific code analysis run (ID: be8d9… | — |
+| `output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9/08-critic.md` | This file serves as a verification and quality assessment report for a code analysis run. It syst… | `Confidence Score`, `Issues Found`, `Unsupported Claims`, … (+7) |
+
+---
+
+See also: [Modules index](index.md) — every module in this run.
