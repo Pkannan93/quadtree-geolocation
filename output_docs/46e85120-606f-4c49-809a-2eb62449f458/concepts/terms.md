@@ -1,0 +1,17 @@
+# Geospatial indexing and visualization via quadtrees Documentation — Glossary
+
+Alphabetical reference for every domain entity and business capability the system mentions. Two badges:
+
+- **Entity** — a noun in the data model (a SQL table, a Pydantic schema, a Go struct).
+- **Capability** — a verb the system performs, typically tied to a bounded context.
+
+Where a description is available, it's the LLM-derived business summary cited to the source declaration. Entities show their field count; capabilities show their bounded context.
+
+| Term | Type | What it is |
+|---|---|---|
+| `core` | Capability | Provides the core quadtree spatial index implementation for storing and querying geographic entities by latitude/longitude. Defines the `Neighbour` entity contract and its `NeighbourImpl` implementation, the recursive `QuadTreeNode` for spatial partitioning, the top-level `QuadTree` facade exposing insertion and proximity search, and `QuadTreeConstants` utilities for unit conversions (e.g., kilometers to degrees). This module is self-contained (isolated in the dependency graph) and serves as the underlying spatial data structure to be consumed by higher-level graphic/visualization layers. |
+| `quadtree` | Capability | Provides a graphical/drawable layer over the core quadtree data structure by extending `QuadTree` and `QuadTreeNode` with Java2D rendering capabilities. It renders quadtree node boundaries as rectangles and visualizes neighbor relationships with zoom-level-dependent detail, while delegating spatial indexing operations (subdivision, neighbor lookup) to the underlying core quadtree implementation. |
+| `quadtree-graphic` | Capability | Provides the Gradle build infrastructure for a standalone `quadtree-graphic` project, including build configuration (Java 8 compatibility, JUnit test dependencies), project settings, and Gradle wrapper scripts for both Unix (`gradlew`) and Windows (`gradlew.bat`) environments. This module is isolated in the dependency graph and contains only build/scaffolding artifacts — no source code is present in this directory. |
+| `src` | Capability | Provides the Swing-based graphical application shell for the quadtree visualization demo. It defines the rendering framework (`Drawable` interface, `BaseObject` base class, `Screen` collection manager), the interactive `CanvasPanel` with its dedicated render thread handling pan/zoom and mouse/keyboard input, and the `MainScreen` which loads a world map, scatters 10 million random points into a quadtree, and performs radius-based neighbor searches on mouse interaction. `Main` bootstraps the `JFrame` and wires `CanvasPanel` into it. |
+| `Top-level project root for a quadtree-based geolocation optimization library` | Capability | Top-level project root for a quadtree-based geolocation optimization library. Contains only repository metadata: licensing (Apache 2.0), Git ignore rules, and the README documenting the spatial indexing data structure with usage examples and visualizations. No source code lives directly at this level; this directory frames and documents the library as a whole. |
+| `wrapper` | Capability | Provides Gradle wrapper configuration for the quadtree-graphic project, pinning the Gradle distribution to version 8.10.2 and defining download URLs, local storage locations, and validation settings so all developers and CI environments build with a consistent Gradle version. This module is isolated in the dependency graph and serves purely as build-tool bootstrapping metadata. |

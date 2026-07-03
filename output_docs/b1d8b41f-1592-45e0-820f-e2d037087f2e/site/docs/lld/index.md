@@ -1,0 +1,69 @@
+# canvas-repo-ywrcy9mc — Low-Level Design
+
+This system comprises 40 modules arranged in a single layer with zero import edges — the runtime quadtree-geolocation application and the Gradle build machinery stand entirely separate from 35 archived `output_docs/<uuid>` directories, each holding a complete generated documentation run. The absence of inter-module dependencies reflects the architectural reality: the `quadtree-graphic/src/main/java/src/quadtree/core` library, its rendering extensions in `quadtree-graphic/src/main/java/src/quadtree`, and the Swing harness in `quadtree-graphic/src/main/java/src` were analyzed repeatedly by an external documentation pipeline that writes its artifacts into timestamped silos without importing any subject code. No module exhibits degraded summary quality, and the graph is acyclic by construction.
+
+The runtime composition root resides in `quadtree-graphic/src/main/java/src` (`Main` instantiates `MainScreen` and `CanvasPanel` to orchestrate the GUI), while the spatial-indexing logic in `quadtree-graphic/src/main/java/src/quadtree/core` functions as a leaf module exporting `QuadTree`, `QuadTreeNode`, and the `Neighbour` interface for km-radius proximity queries. The 35 documentation archives each replicate the same eight-stage report structure (`00-run-summary` through `08-critic`) with no cross-references, making them forensic snapshots rather than live code. This flat topology eliminates layering violations but also means no module list will show fan-in or fan-out neighbors.
+
+For the higher-level view of how the quadtree library, rendering layer, and Swing shell relate as runtime components — as opposed to the filesystem partitioning surveyed here — consult the HLD Components page.
+
+## Modular structure at a glance
+
+| Dimension | Value |
+|---|---|
+| Modules | 40 |
+| Degraded summaries | 0 |
+| Dependency edges | 0 |
+| Acyclic | yes |
+| Topological layers | 1 |
+| Cycles | 0 |
+| Per-module pages emitted | 40 |
+
+## All modules
+
+| Module | Responsibility |
+|---|---|
+| [.](modules/root.md) | Root-level repository metadata for a standalone quadtree-based geolocation data structure project. Contains… |
+| [output_docs/0520f421-3584-4a75-8b04-97cbcf45f5f7](modules/output_docs__0520f421__3584__4a75__8b04__97cbcf45f5f7.md) | This module is an isolated output artifact directory containing the complete set of documentation generatio… |
+| [output_docs/13d2867e-cc7f-4366-8d7e-a8e36f74a147](modules/output_docs__13d2867e__cc7f__4366__8d7e__a8e36f74a147.md) | This module is an isolated output artifact directory containing the generated documentation deliverables fo… |
+| [output_docs/1b36ab85-b4a9-4da8-9377-b95ee49e2fd7](modules/output_docs__1b36ab85__b4a9__4da8__9377__b95ee49e2fd7.md) | This module is an isolated, generated documentation artifact directory for the `quadtree-geolocation` repos… |
+| [output_docs/2473916f-59c7-4f88-ae4b-4cc55ec6c04a](modules/output_docs__2473916f__59c7__4f88__ae4b__4cc55ec6c04a.md) | This module is an output artifact directory for a single documentation-generation run (identified by UUID `… |
+| [output_docs/27c31699-7abf-457b-a087-532f24fa07c1](modules/output_docs__27c31699__7abf__457b__a087__532f24fa07c1.md) | This module is an isolated output artifact directory containing the complete generated documentation for a… |
+| [output_docs/3ce1bc1d-a150-4697-9858-2d0728b2b3ea](modules/output_docs__3ce1bc1d__a150__4697__9858__2d0728b2b3ea.md) | This module is an output artifact directory containing the generated documentation deliverables for a singl… |
+| [output_docs/3cff911f-bcb2-4fe1-87d5-eb050623423f](modules/output_docs__3cff911f__bcb2__4fe1__87d5__eb050623423f.md) | This module is an isolated, self-contained output directory containing the generated analysis artifacts for… |
+| [output_docs/4a66578e-e29c-45b0-a782-5ed801bdc3d1](modules/output_docs__4a66578e__e29c__45b0__a782__5ed801bdc3d1.md) | This module is a self-contained documentation output directory for a single documentation-generation run (r… |
+| [output_docs/4fa81b64-5268-4b7c-9fb8-3da7b6320406](modules/output_docs__4fa81b64__5268__4b7c__9fb8__3da7b6320406.md) | This module is an isolated documentation output directory containing the generated artifacts of a single re… |
+| [output_docs/742d0dce-e19d-45fb-9a93-f363ae6b600f](modules/output_docs__742d0dce__e19d__45fb__9a93__f363ae6b600f.md) | This module is an isolated output artifact directory containing the generated documentation deliverables fo… |
+| [output_docs/81bfea4c-bca4-4354-a6af-42e79ce1d979](modules/output_docs__81bfea4c__bca4__4354__a6af__42e79ce1d979.md) | This module is an isolated documentation output directory for a single analysis run (ID 81bfea4c-bca4-4354-… |
+| [output_docs/84013871-aa6e-42b2-8c17-738d2206c7ad](modules/output_docs__84013871__aa6e__42b2__8c17__738d2206c7ad.md) | This module is an isolated, generated output bundle for a single analysis run (ID `84013871-aa6e-42b2-8c17-… |
+| [output_docs/8931b3bf-b929-4471-b7fa-c042ea95bf72](modules/output_docs__8931b3bf__b929__4471__b7fa__c042ea95bf72.md) | This module is an isolated output artifact directory containing the complete documentation generation pipel… |
+| [output_docs/8cedd601-607c-4234-aede-445c1816e1ca](modules/output_docs__8cedd601__607c__4234__aede__445c1816e1ca.md) | This module is an isolated output directory containing the generated documentation artifacts for a single d… |
+| [output_docs/976d4bea-3fa4-47bf-8b6d-3c704c4fd0f8](modules/output_docs__976d4bea__3fa4__47bf__8b6d__3c704c4fd0f8.md) | This module is an isolated documentation output directory containing the full set of generated analysis art… |
+| [output_docs/ac867df2-d266-4fbc-9a56-28912a9cbe7f](modules/output_docs__ac867df2__d266__4fbc__9a56__28912a9cbe7f.md) | This module is an isolated documentation output directory containing the full set of generated artifacts fr… |
+| [output_docs/adeda53c-0d7a-4aec-9ebe-b65a585c9af3](modules/output_docs__adeda53c__0d7a__4aec__9ebe__b65a585c9af3.md) | This module is an output artifact directory containing the generated documentation deliverables for a singl… |
+| [output_docs/ae442353-f477-4c46-9abc-157eb460184f](modules/output_docs__ae442353__f477__4c46__9abc__157eb460184f.md) | This module is an isolated documentation output directory containing the complete artifacts of a single aut… |
+| [output_docs/b2d8d2cb-f4c8-405a-ab26-8a2f6b0fe598](modules/output_docs__b2d8d2cb__f4c8__405a__ab26__8a2f6b0fe598.md) | This module is an isolated documentation output directory containing the complete generated analysis artifa… |
+| [output_docs/b6531516-c93c-4826-af47-74bc7949ec36](modules/output_docs__b6531516__c93c__4826__af47__74bc7949ec36.md) | This module is an isolated output artifact directory containing the complete generated documentation delive… |
+| [output_docs/b8b022df-b5f4-4753-b5d6-7044bd583aaf](modules/output_docs__b8b022df__b5f4__4753__b5d6__7044bd583aaf.md) | This module is an isolated output artifact directory containing the generated documentation deliverables fo… |
+| [output_docs/be8d9b5b-8af3-4346-b060-aa090902dcb9](modules/output_docs__be8d9b5b__8af3__4346__b060__aa090902dcb9.md) | This module is an isolated documentation output directory containing the full analysis artifact set for a s… |
+| [output_docs/c7f8292d-49c1-4fad-b076-01327fb153fe](modules/output_docs__c7f8292d__49c1__4fad__b076__01327fb153fe.md) | This module is an output artifact directory containing the generated documentation deliverables for a singl… |
+| [output_docs/d3f23642-6ed9-42be-b97a-c16b381f84d0](modules/output_docs__d3f23642__6ed9__42be__b97a__c16b381f84d0.md) | This module is a generated documentation output directory for a single analysis run (ID `d3f23642-6ed9-42be… |
+| [output_docs/d7fc7dbb-946e-47ec-a6f9-d21bd88e1517](modules/output_docs__d7fc7dbb__946e__47ec__a6f9__d21bd88e1517.md) | This module is an isolated documentation output directory containing the artifacts of a single analysis/doc… |
+| [output_docs/e92d6139-d983-43b4-9b32-98b3be673553](modules/output_docs__e92d6139__d983__43b4__9b32__98b3be673553.md) | This module is a self-contained output directory holding the full set of generated analysis artifacts for a… |
+| [output_docs/eafeaf72-cba4-4d80-ac1f-4fc7b04cc96d](modules/output_docs__eafeaf72__cba4__4d80__ac1f__4fc7b04cc96d.md) | This module is an isolated, terminal artifact directory containing the complete output of an automated repo… |
+| [output_docs/f4132b71-0741-4e5a-930f-537bc1c02d24](modules/output_docs__f4132b71__0741__4e5a__930f__537bc1c02d24.md) | This module is an isolated output artifact directory containing the complete generated documentation delive… |
+| [output_docs/f540a172-bf8b-4bd9-80eb-9851adf6f498](modules/output_docs__f540a172__bf8b__4bd9__80eb__9851adf6f498.md) | This module is an isolated output artifact directory containing the generated documentation for a single re… |
+| [output_docs/f898d313-ec14-439f-8fb3-673849e0a90e](modules/output_docs__f898d313__ec14__439f__8fb3__673849e0a90e.md) | This module is an isolated documentation output directory containing the generated artifacts for a single d… |
+| [output_docs/f98e26cf-c2f8-4988-853d-25722a971621](modules/output_docs__f98e26cf__c2f8__4988__853d__25722a971621.md) | This module is an isolated documentation output directory containing the complete artifacts of a single doc… |
+| [output_docs/fb10ebfe-68d8-41f6-9441-0d2f9923d063](modules/output_docs__fb10ebfe__68d8__41f6__9441__0d2f9923d063.md) | This module is an isolated output artifact directory containing the generated documentation for a single an… |
+| [output_docs/fbbd6e79-5648-4a44-8ff9-cc26202c51ac](modules/output_docs__fbbd6e79__5648__4a44__8ff9__cc26202c51ac.md) | This module is an isolated documentation output directory for a single documentation-generation run (identi… |
+| [output_docs/fe71554f-60d7-4738-bc59-e4c1a98be1e0](modules/output_docs__fe71554f__60d7__4738__bc59__e4c1a98be1e0.md) | This module is an output artifact directory containing the complete generated analysis report for a single… |
+| [quadtree-graphic](modules/quadtree__graphic.md) | Provides the Gradle build scaffolding for an isolated `quadtree-graphic` project, including the Java plugin… |
+| [quadtree-graphic/gradle/wrapper](modules/quadtree__graphic__gradle__wrapper.md) | Provides the Gradle Wrapper configuration for the quadtree-graphic project, pinning the build to Gradle 4.0… |
+| [quadtree-graphic/src/main/java/src](modules/quadtree__graphic__src__main__java__src.md) | Provides the top-level Swing application shell and rendering framework for the quadtree graphic visualizer.… |
+| [quadtree-graphic/src/main/java/src/quadtree](modules/quadtree__graphic__src__main__java__src__quadtree.md) | Provides graphical/drawable extensions to a core quadtree data structure for visualization purposes. `Drawa… |
+| [quadtree-graphic/src/main/java/src/quadtree/core](modules/quadtree__graphic__src__main__java__src__quadtree__core.md) | Provides a self-contained quadtree spatial indexing core for geographic data. Defines the `Neighbour` abstr… |
+
+
+---
+
+**Related surfaces.** [HLD Components](../hld/components.md) · [HLD Architecture](../hld/architecture.md) · [Codebase Guide](../modules/index.md)

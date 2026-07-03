@@ -1,0 +1,816 @@
+# Static Code Analysis
+
+Generated at: 2026-05-20T08:37:35.587Z
+
+## Symbol Graph
+
+_No entries found._
+
+## Dependency Graph
+
+### Item 1
+
+- **File:** quadtree-graphic/src/main/java/src/BaseObject.java
+
+#### Imports
+
+- java.awt.
+
+### Item 2
+
+- **File:** quadtree-graphic/src/main/java/src/CanvasPanel.java
+
+#### Imports
+
+- java.awt.
+- java.awt.event.
+- java.awt.image.BufferStrategy
+- static
+
+### Item 3
+
+- **File:** quadtree-graphic/src/main/java/src/Drawable.java
+
+#### Imports
+
+- java.awt.
+
+### Item 4
+
+- **File:** quadtree-graphic/src/main/java/src/Main.java
+
+#### Imports
+
+- javax.swing.
+- java.awt.
+
+### Item 5
+
+- **File:** quadtree-graphic/src/main/java/src/MainScreen.java
+
+#### Imports
+
+- src.quadtree.DrawableQuadTree
+- src.quadtree.core.Neighbour
+- javax.imageio.ImageIO
+- java.awt.
+- java.awt.image.BufferedImage
+- java.io.IOException
+- java.util.HashSet
+- java.util.Random
+- java.util.Set
+- static
+
+### Item 6
+
+- **File:** quadtree-graphic/src/main/java/src/Screen.java
+
+#### Imports
+
+- java.awt.
+- java.util.ArrayList
+- java.util.List
+
+### Item 7
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/DrawableQuadTree.java
+
+#### Imports
+
+- src.Drawable
+- src.quadtree.core.QuadTree
+- java.awt.
+
+### Item 8
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/DrawableQuadTreeNode.java
+
+#### Imports
+
+- src.Drawable
+- src.quadtree.core.Neighbour
+- src.quadtree.core.QuadTreeNode
+- java.awt.
+- java.awt.geom.Rectangle2D
+
+### Item 9
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/core/Neighbour.java
+
+#### Imports
+
+_No entries found._
+
+### Item 10
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/core/NeighbourImpl.java
+
+#### Imports
+
+_No entries found._
+
+### Item 11
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/core/QuadTree.java
+
+#### Imports
+
+- java.awt.geom.Rectangle2D
+- java.util.HashSet
+- java.util.Set
+
+### Item 12
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/core/QuadTreeConstants.java
+
+#### Imports
+
+_No entries found._
+
+### Item 13
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/core/QuadTreeNode.java
+
+#### Imports
+
+- java.awt.geom.Rectangle2D
+- java.util.ArrayList
+- java.util.List
+- java.util.Set
+
+## Api Catalog
+
+_No entries found._
+
+## Entity Candidates
+
+- BaseObject
+- CanvasPanel
+- DrawableQuadTree
+- DrawableQuadTreeNode
+- Main
+- MainScreen
+- NeighbourImpl
+- QuadTree
+- QuadTreeConstants
+- QuadTreeNode
+- Screen
+
+## Sql Usage
+
+### Item 1
+
+- **File:** quadtree-graphic/src/main/java/src/CanvasPanel.java
+
+- **Snippet:** mMainScreen.update(difftime, difftime / 1000.f);
+
+### Item 2
+
+- **File:** quadtree-graphic/src/main/java/src/Drawable.java
+
+- **Snippet:** * Update is called each time a frame is about to be rendered.
+
+### Item 3
+
+- **File:** quadtree-graphic/src/main/java/src/Drawable.java
+
+- **Snippet:** * @param difftime the difference in milliseconds from the last update
+
+### Item 4
+
+- **File:** quadtree-graphic/src/main/java/src/Drawable.java
+
+- **Snippet:** abstract void update(long difftime, float difftimeInSeconds);
+
+### Item 5
+
+- **File:** quadtree-graphic/src/main/java/src/MainScreen.java
+
+- **Snippet:** public void update(long difftime, float difftimeInSeconds) {
+
+### Item 6
+
+- **File:** quadtree-graphic/src/main/java/src/MainScreen.java
+
+- **Snippet:** super.update(difftime, difftimeInSeconds);
+
+### Item 7
+
+- **File:** quadtree-graphic/src/main/java/src/MainScreen.java
+
+- **Snippet:** mQuadTree.update(difftime, difftimeInSeconds);
+
+### Item 8
+
+- **File:** quadtree-graphic/src/main/java/src/Screen.java
+
+- **Snippet:** public void update(long difftime, float difftimeInSeconds) {
+
+### Item 9
+
+- **File:** quadtree-graphic/src/main/java/src/Screen.java
+
+- **Snippet:** drawable.update(difftime, difftimeInSeconds);
+
+### Item 10
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/DrawableQuadTree.java
+
+- **Snippet:** public void update(long difftime, float difftimeInSeconds) {
+
+### Item 11
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/DrawableQuadTree.java
+
+- **Snippet:** ((DrawableQuadTreeNode) getRootNode()).update(difftime, difftimeInSeconds);
+
+### Item 12
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/DrawableQuadTreeNode.java
+
+- **Snippet:** public void update(long difftime, float difftimeInSeconds) {
+
+### Item 13
+
+- **File:** quadtree-graphic/src/main/java/src/quadtree/core/QuadTreeNode.java
+
+- **Snippet:** * Removes a neighbour from the quadtree
+
+## Event Producers Consumers
+
+_No entries found._
+
+## Architecture Layers
+
+_No entries found._
+
+## Key Modules
+
+### Item 1
+
+- **Module:** quadtree-graphic/src/main/java/src/BaseObject.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 2
+
+- **Module:** quadtree-graphic/src/main/java/src/CanvasPanel.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 3
+
+- **Module:** quadtree-graphic/src/main/java/src/Drawable.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 4
+
+- **Module:** quadtree-graphic/src/main/java/src/Main.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 5
+
+- **Module:** quadtree-graphic/src/main/java/src/MainScreen.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 6
+
+- **Module:** quadtree-graphic/src/main/java/src/Screen.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 7
+
+- **Module:** quadtree-graphic/src/main/java/src/quadtree/DrawableQuadTree.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 8
+
+- **Module:** quadtree-graphic/src/main/java/src/quadtree/DrawableQuadTreeNode.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 9
+
+- **Module:** quadtree-graphic/src/main/java/src/quadtree/core/Neighbour.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 10
+
+- **Module:** quadtree-graphic/src/main/java/src/quadtree/core/NeighbourImpl.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 11
+
+- **Module:** quadtree-graphic/src/main/java/src/quadtree/core/QuadTree.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 12
+
+- **Module:** quadtree-graphic/src/main/java/src/quadtree/core/QuadTreeNode.java
+
+- **Role:** other
+
+- **Importance Score:** 1
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+### Item 13
+
+- **Module:** quadtree-graphic/src/main/java/src/quadtree/core/QuadTreeConstants.java
+
+- **Role:** other
+
+- **Importance Score:** -3
+
+#### Why Important
+
+- Role: other
+- Limited incoming dependencies
+- Cross-feature or core scope
+
+## Dependency Hotspots
+
+_No entries found._
+
+## Architectural Patterns
+
+### Item 1
+
+- **Pattern:** feature-based structure
+
+- **Detected:** No
+
+#### Evidence
+
+_No entries found._
+
+- **Confidence:** low
+
+### Item 2
+
+- **Pattern:** service layer pattern
+
+- **Detected:** No
+
+#### Evidence
+
+_No entries found._
+
+- **Confidence:** low
+
+### Item 3
+
+- **Pattern:** guard/interceptor usage
+
+- **Detected:** No
+
+#### Evidence
+
+_No entries found._
+
+- **Confidence:** low
+
+### Item 4
+
+- **Pattern:** API abstraction layer
+
+- **Detected:** No
+
+#### Evidence
+
+_No entries found._
+
+- **Confidence:** low
+
+### Item 5
+
+- **Pattern:** mock-data pattern
+
+- **Detected:** No
+
+#### Evidence
+
+_No entries found._
+
+- **Confidence:** low
+
+### Item 6
+
+- **Pattern:** shared component reuse
+
+- **Detected:** No
+
+#### Evidence
+
+_No entries found._
+
+- **Confidence:** low
+
+### Item 7
+
+- **Pattern:** routing-driven navigation
+
+- **Detected:** No
+
+#### Evidence
+
+_No entries found._
+
+- **Confidence:** low
+
+## Mock Vs Api Assessment
+
+- **Classification:** unknown
+
+### Mock Data Signals
+
+_No entries found._
+
+### Real Api Signals
+
+_No entries found._
+
+- **Notes:** No endpoint catalog confidently inferred from frontend-only evidence
+
+## Code Quality Observations
+
+_No entries found._
+
+## Missing Or Weak Areas
+
+### Item 1
+
+- **Issue:** Service layer pattern not clearly detected
+
+- **Why It Matters:** Without service orchestration boundaries, business logic may be scattered and harder to govern.
+
+- **Confidence:** medium
+
+- **Suggested Next Refinement:** Improve role inference for domain-specific orchestrator files and facades.
+
+### Item 2
+
+- **Issue:** Routing/navigation structure not clearly detected
+
+- **Why It Matters:** Navigation control points are critical for feature boundaries and UX flow analysis.
+
+- **Confidence:** medium
+
+- **Suggested Next Refinement:** Expand routing detection to framework-specific route registration styles.
+
+### Item 3
+
+- **Issue:** Domain model layer is weak or not explicit
+
+- **Why It Matters:** Weak domain representation reduces confidence in business-architecture mapping.
+
+- **Confidence:** medium
+
+- **Suggested Next Refinement:** Expand model detection to include view-model/state interfaces and schema objects.
+
+## Confidence Notes
+
+- **Overall:** medium
+
+### Evidence Coverage
+
+- **Files Analyzed:** 13
+
+- **Key Modules:** 13
+
+- **Hotspots:** 0
+
+- **Api Signals:** 0
+
+### Caveats
+
+- API inference depends on explicit HTTP usage patterns in code
+- Backend-focused evidence detected; presentation-layer insights may be limited
+
+## Service Http Summary
+
+_No entries found._
+
+## Notable Snippets
+
+_No entries found._
+
+## Llm Module Annotations
+
+### Item 1
+
+- **Module:** BaseObject.java
+
+- **Business Purpose:** Provides a base class for drawable objects with common properties and behavior.
+
+### Item 2
+
+- **Module:** CanvasPanel.java
+
+- **Business Purpose:** Renders drawable objects onto a graphical canvas for visual display.
+
+### Item 3
+
+- **Module:** Drawable.java
+
+- **Business Purpose:** Defines the interface for objects that can be rendered on screen.
+
+### Item 4
+
+- **Module:** Main.java
+
+- **Business Purpose:** Entry point that initializes and launches the application.
+
+### Item 5
+
+- **Module:** MainScreen.java
+
+- **Business Purpose:** Constructs and manages the primary user interface window and its components.
+
+### Item 6
+
+- **Module:** Screen.java
+
+- **Business Purpose:** Defines the contract for screen implementations that display content.
+
+### Item 7
+
+- **Module:** DrawableQuadTree.java
+
+- **Business Purpose:** Extends the quad tree data structure to support rendering of spatially-organized drawable objects.
+
+### Item 8
+
+- **Module:** DrawableQuadTreeNode.java
+
+- **Business Purpose:** Represents a node in the drawable quad tree that manages child objects and rendering.
+
+### Item 9
+
+- **Module:** Neighbour.java
+
+- **Business Purpose:** Defines the interface for accessing neighboring nodes in the quad tree structure.
+
+### Item 10
+
+- **Module:** NeighbourImpl.java
+
+- **Business Purpose:** Implements neighbor lookup functionality to find adjacent nodes in the quad tree.
+
+### Item 11
+
+- **Module:** QuadTree.java
+
+- **Business Purpose:** Implements a spatial partitioning data structure that organizes objects into hierarchical quadrants for efficient spatial queries.
+
+### Item 12
+
+- **Module:** QuadTreeNode.java
+
+- **Business Purpose:** Represents a single node in the quad tree hierarchy that stores objects and references to child quadrants.
+
+- **Llm Architecture Summary:** This application is a graphical visualization tool that uses a quad tree data structure to efficiently organize and render drawable objects in 2D space. The system separates spatial data management (quad tree core) from rendering concerns (canvas and drawable components), with a main screen serving as the entry point for the user interface.
+
+## Llm Entity Relationships
+
+### Item 1
+
+- **From:** DrawableQuadTree
+
+- **To:** QuadTree
+
+- **Relationship:** references
+
+### Item 2
+
+- **From:** DrawableQuadTree
+
+- **To:** DrawableQuadTreeNode
+
+- **Relationship:** has-many
+
+### Item 3
+
+- **From:** DrawableQuadTreeNode
+
+- **To:** QuadTreeNode
+
+- **Relationship:** references
+
+### Item 4
+
+- **From:** DrawableQuadTreeNode
+
+- **To:** BaseObject
+
+- **Relationship:** has-many
+
+### Item 5
+
+- **From:** DrawableQuadTreeNode
+
+- **To:** NeighbourImpl
+
+- **Relationship:** references
+
+### Item 6
+
+- **From:** QuadTreeNode
+
+- **To:** QuadTreeNode
+
+- **Relationship:** has-many
+
+### Item 7
+
+- **From:** QuadTree
+
+- **To:** QuadTreeNode
+
+- **Relationship:** owns
+
+### Item 8
+
+- **From:** QuadTree
+
+- **To:** QuadTreeConstants
+
+- **Relationship:** references
+
+### Item 9
+
+- **From:** CanvasPanel
+
+- **To:** DrawableQuadTree
+
+- **Relationship:** references
+
+### Item 10
+
+- **From:** MainScreen
+
+- **To:** Screen
+
+- **Relationship:** references
+
+### Item 11
+
+- **From:** MainScreen
+
+- **To:** CanvasPanel
+
+- **Relationship:** owns
+
+### Item 12
+
+- **From:** Main
+
+- **To:** MainScreen
+
+- **Relationship:** references
+
+## Llm Code Quality Insights
+
+### Item 1
+
+- **Area:** Layer Architecture
+
+- **Observation:** No clear separation between presentation, business logic, and data layers. CanvasPanel, DrawableQuadTree, and Main appear to mix UI rendering with spatial data structure logic, violating single responsibility principle.
+
+- **Severity:** high
+
+### Item 2
+
+- **Area:** Domain Model
+
+- **Observation:** Domain entities (BaseObject, QuadTreeNode, QuadTreeConstants) lack explicit business logic encapsulation. QuadTree implementation details are exposed directly to UI layer (DrawableQuadTree), creating tight coupling.
+
+- **Severity:** high
+
+### Item 3
+
+- **Area:** Service Layer Absence
+
+- **Observation:** No service layer detected to orchestrate business operations. UI components likely directly manipulate data structures (QuadTree, DrawableQuadTree), making testing difficult and business logic non-reusable.
+
+- **Severity:** high
+
+### Item 4
+
+- **Area:** Navigation and Routing
+
+- **Observation:** Main and MainScreen appear to handle navigation without a clear routing pattern or navigation controller. Screen switching logic is likely embedded in UI components, reducing maintainability.
+
+- **Severity:** medium
+
+### Item 5
+
+- **Area:** Drawable vs Data Separation
+
+- **Observation:** DrawableQuadTree and DrawableQuadTreeNode duplicate QuadTree structure for rendering purposes. This parallel hierarchy suggests missing abstraction layer (Adapter/Presenter pattern) and increases maintenance burden.
+
+- **Severity:** medium
+
+## Decorator Patterns
+
+_No entries found._

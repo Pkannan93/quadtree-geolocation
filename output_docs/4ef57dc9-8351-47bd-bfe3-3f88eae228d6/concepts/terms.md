@@ -1,0 +1,17 @@
+# Geospatial indexing and proximity search with interactive visualization Documentation — Glossary
+
+Alphabetical reference for every domain entity and business capability the system mentions. Two badges:
+
+- **Entity** — a noun in the data model (a SQL table, a Pydantic schema, a Go struct).
+- **Capability** — a verb the system performs, typically tied to a bounded context.
+
+Where a description is available, it's the LLM-derived business summary cited to the source declaration. Entities show their field count; capabilities show their bounded context.
+
+| Term | Type | What it is |
+|---|---|---|
+| `.` | Capability | Top-level project metadata for a quadtree data structure implementation aimed at geolocation optimization. Contains only repository-level artifacts (`.gitignore`, `LICENSE` under Apache 2.0, and `README.md` describing the quadtree's purpose and usage) with no source code or runtime dependencies. Serves as the documentation and licensing entry point for the project. |
+| `core` | Capability | Provides the core QuadTree spatial indexing implementation for storing and querying geographic entities by latitude/longitude. Defines the `Neighbour` abstraction (interface plus `NeighbourImpl`) representing points with an ID and coordinates, and exposes a `QuadTree` facade backed by recursive `QuadTreeNode` subdivision to support insertion and radius-based neighbor lookups (in kilometers, converted via `QuadTreeConstants`). This module is self-contained (isolated in the dependency graph) and offers the reusable spatial data structure that other layers of the quadtree-graphic application would build upon. |
+| `Provides drawable/visualizable extensions of the core quadtree data structure` | Capability | Provides drawable/visualizable extensions of the core quadtree data structure. `DrawableQuadTree` extends the base `QuadTree` and delegates rendering to its root `DrawableQuadTreeNode`, which extends `QuadTreeNode` and implements `Drawable` to render node boundaries and neighbor points on screen (with zoom-dependent detail). This module is isolated in the dependency graph and serves as a visualization layer over an external quadtree core. |
+| `quadtree-graphic` | Capability | Provides the Gradle build infrastructure for the `quadtree-graphic` project, including the root project settings, Java 11 compilation configuration, JUnit 5 test dependency wiring, and the cross-platform Gradle wrapper scripts (`gradlew` for Unix, `gradlew.bat` for Windows) used to bootstrap builds. This module is an isolated build-tooling root with no runtime code dependencies on or from other modules in the graph. |
+| `src` | Capability | Provides the top-level Swing/AWT application shell for the quadtree visualization: bootstraps the JFrame (`Main`), hosts a game-loop rendering canvas with zoom/pan and input handling (`CanvasPanel`), and defines the `Screen`/`Drawable`/`BaseObject` abstractions that structure renderable entities. Its concrete `MainScreen` composes a `DrawableQuadTree` over a world-map background, generates random points, and dispatches mouse-driven neighbour queries against the underlying `QuadTree`. |
+| `wrapper` | Capability | Provides Gradle wrapper configuration for the quadtree-graphic project, specifying the Gradle distribution URL and version along with file system paths for the wrapper's base directory, zip storage, and JAR location. This enables reproducible Gradle builds across environments without requiring a pre-installed Gradle distribution. |
