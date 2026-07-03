@@ -1,0 +1,195 @@
+# Geospatial indexing and proximity search via quadtree, with an interactive Swing visualization Documentation
+
+<!-- alpha8-narrative:overview -->
+## Overview
+
+This repository pairs a working Java quadtree implementation with an extensive archive of automated documentation runs. The runtime application lives in `quadtree-graphic`, where `src/quadtree/core` provides the core spatial indexing library—`QuadTree`, `QuadTreeNode`, and `Neighbour` classes support recursive subdivision and kilometer-radius proximity search over latitude/longitude points—and `src/quadtree` extends those primitives with `DrawableQuadTree` and `DrawableQuadTreeNode` for rendering. A Swing GUI shell (`Main`, `CanvasPanel`, `MainScreen`) wraps the drawable layer, offering pan, zoom, and interactive neighbor search over a world map background. Gradle 4.0 wrapper scripts in `quadtree-graphic/gradle/wrapper` ensure reproducible builds.
+
+The majority of the 307 files, however, are documentation artifacts in `output_docs/<uuid>`. Each UUID folder captures a complete run of an eight-stage analysis pipeline—ingestion, static analysis, runtime inference, business semantics, documentation generation, optional diagrams, and critic review—producing Markdown reports numbered `00-run-summary` through `08-critic`. Thirty-five such runs are preserved, all targeting the same quadtree-geolocation subject, forming a flat archive with no cross-references between runs.
+
+Use the tables below to explore individual classes, configuration files, and the structure of each documentation run.
+<!-- /alpha8-narrative:overview -->
+_Source: `https://github.com/Pkannan93/quadtree-geolocation.git` @ `c2f90c50a63f`_
+
+**Purpose.** This repository contains a Java/Gradle implementation of a quadtree-based geolocation visualizer alongside a large collection of generated documentation artifacts. The runtime code is concentrated in `quadtree-graphic/src/main/java/src/quadtree/core` (the standalone spatial-indexing library defining `QuadTree`, `QuadTreeNode`, `Neighbour`/`NeighbourImpl`, and `QuadTreeConstants` for km-radius proximity search over lat/lon points), `quadtree-graphic/src/main/java/src/quadtree` (the `DrawableQuadTree`/`DrawableQuadTreeNode` rendering extensions), and `quadtree-graphic/src/main/java/src` (the Swing shell — `Main`, `CanvasPanel`, `MainScreen` — providing pan/zoom interaction and a world-map visualization). Build orchestration lives in `quadtree-graphic` and `quadtree-graphic/gradle/wrapper` (Gradle 4.0 wrapper). The bulk of the repository's directory count, however, is the `output_docs/<uuid>` tree: 35+ self-contained per-run bundles of Markdown reports (`00-run-summary` through `07-critic`/`08-critic`, with optional `07-diagrams`) produced by an automated multi-stage documentation pipeline (ingestion → static analysis → runtime inference → business semantics → documentation → diagrams → critic) that has repeatedly analyzed this same quadtree-geolocation subject.
+
+**Architecture style.** library + GUI application coexisting with a flat archive of generated documentation runs (no internal import edges; graph is a single layer of 39 isolated modules)
+
+**Primary domain.** Geospatial indexing and proximity search via quadtree, with an interactive Swing visualization
+
+## Key capabilities
+
+- Quadtree-based insertion and radius (km) proximity search over geographic neighbours
+- Recursive spatial subdivision with configurable minimum node size and km-to-degree conversion
+- Interactive Swing visualization of the quadtree with pan/zoom and on-canvas neighbour search
+- Drawable rendering layer overlaying quadtree node bounds and points onto a world map
+- Gradle-wrapper-based reproducible build of the Java application
+- Archival of automated multi-stage documentation pipeline outputs (run summary, ingestion, static/runtime analysis, business semantics, diagrams, critic) per analysis run
+
+## Business capabilities
+
+### `automated code analysis / documentation generation artifacts (for a quadtree-geolocation target repository)`
+
+- **84013871-aa6e-42b2-8c17-738d2206c7ad** — This module is an isolated, generated output bundle for a single analysis run (ID `84013871-aa6e-42b2-8c17-738d2206c7ad`) targeting the `quadtree-geolocation` repository. It aggregates the staged outputs of an automated documentation pipeline — run metadata, ingestion findings, static analysis, runtime inference, business semantics, functional documentation, diagrams, and a final critic review — into a sequenced set of Markdown reports. Several stages (business semantics, documentation, diagrams) explicitly record that insufficient technical signals were found, while the critic stage captures confidence scores and remediation suggestions over the upstream agents' results.
+
+### `automated code analysis and documentation generation artifacts`
+
+- **d3f23642-6ed9-42be-b97a-c16b381f84d0** — This module is a generated documentation output directory for a single analysis run (ID `d3f23642-6ed9-42be-b97a-c16b381f84d0`) of the external `quadtree-geolocation` repository. It contains a sequenced series of markdown reports covering each stage of the analysis pipeline: run metadata (`00-run-summary.md`), selected results (`01-selected-result.md`), repository ingestion (`02-ingestion.md`), static code analysis (`03-static-analysis.md`), runtime behavior inference (`04-runtime-inference.md`), business semantics (`05-business-semantics.md`), functional specification documentation (`06-documentation.md`), diagram generation results (`07-diagrams.md`), and documentation criticism/verification (`08-critic.md`). The module is isolated in the dependency graph — it neither imports from nor is imported by other modules — and serves as a terminal artifact bundle produced by the documentation generation system.
+
+### `automated code analysis and documentation generation pipeline output`
+
+- **13d2867e-cc7f-4366-8d7e-a8e36f74a147** — This module is an isolated output artifact directory containing the generated documentation deliverables for a single analysis run (ID `13d2867e-cc7f-4366-8d7e-a8e36f74a147`). It bundles the full pipeline output as sequentially numbered markdown files: run metadata (`00-run-summary`), selected results (`01-selected-result`), repository ingestion analysis (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics (`05-business-semantics`), functional specification documentation (`06-documentation`), and critic/quality verification (`07-critic`). The module has no code-level fan-in or fan-out — it is a terminal report bundle consumed by humans rather than other modules.
+
+### `automated code analysis and documentation generation pipeline output (target subject: quadtree-geolocation)`
+
+- **d7fc7dbb-946e-47ec-a6f9-d21bd88e1517** — This module is an isolated documentation output directory containing the artifacts of a single analysis/documentation generation run (identified by UUID `d7fc7dbb-946e-47ec-a6f9-d21bd88e1517`) for the `quadtree-geolocation` repository. It aggregates the sequential stages of an automated documentation pipeline — run metadata, ingestion analysis, static analysis, runtime inference, business semantics, generated documentation, diagrams, and a critic review — into numbered Markdown reports. Several stages (runtime inference, business semantics, diagrams) explicitly record negative results, indicating the pipeline ran end-to-end but found insufficient evidence for those phases.
+
+### `automated code analysis and functional documentation generation`
+
+- **fbbd6e79-5648-4a44-8ff9-cc26202c51ac** — This module is an isolated documentation output directory for a single documentation-generation run (identified by UUID `fbbd6e79-5648-4a44-8ff9-cc26202c51ac`). It aggregates the full pipeline artifacts produced when analyzing a target repository: run metadata (`00-run-summary.md`), the finalized selected result (`01-selected-result.md`), repository ingestion profiling (`02-ingestion.md`), static code analysis (`03-static-analysis.md`), runtime behavior inference (`04-runtime-inference.md`), business semantics interpretation (`05-business-semantics.md`), the consolidated functional specification (`06-documentation.md`), and a verification critic report (`07-critic.md`). Together these files represent the staged, traceable outputs of an automated codebase-to-functional-documentation workflow. The module has no inbound or outbound code dependencies — it is a terminal data/artifact directory consumed by humans or downstream documentation tooling.
+
+### `automated code documentation / analysis pipeline output (subject system: quadtree-based geolocation)`
+
+- **4a66578e-e29c-45b0-a782-5ed801bdc3d1** — This module is a self-contained documentation output directory for a single documentation-generation run (run ID `4a66578e-e29c-45b0-a782-5ed801bdc3d1`) targeting a quadtree-geolocation Java application. It captures the full pipeline of artifacts produced by an automated analysis workflow: run metadata (`00-run-summary`), the consolidated final result (`01-selected-result`), ingestion analysis (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics (`05-business-semantics`), the resulting functional specification (`06-documentation`), and critic-based quality verification (`07-critic`). As an isolated module with no inbound or outbound dependencies, it functions purely as a terminal output artifact store rather than executable code.
+
+### `automated code documentation / repository analysis output`
+
+- **f898d313-ec14-439f-8fb3-673849e0a90e** — This module is an isolated documentation output directory containing the generated artifacts for a single documentation run (identified by UUID `f898d313-ec14-439f-8fb3-673849e0a90e`). It captures the full pipeline output: run metadata (`00-run-summary`), the consolidated final result (`01-selected-result`), and intermediate stage reports covering ingestion, static analysis, runtime inference, business semantics, the assembled functional documentation, and a critic's verification review. Together these files document a target repository's structure, behavior, business capabilities, and quality assessment, serving as the deliverable bundle of the documentation generation process.
+
+### `automated code documentation / repository analysis output (subject repo: quadtree-based geolocation)`
+
+- **b8b022df-b5f4-4753-b5d6-7044bd583aaf** — This module is an isolated output artifact directory containing the generated documentation deliverables for a single analysis run (run id `b8b022df-b5f4-4753-b5d6-7044bd583aaf`) of the `quadtree-geolocation` repository. It aggregates the sequential outputs of a multi-stage documentation pipeline — run metadata, ingestion analysis, static analysis, runtime inference, business semantics interpretation, the consolidated functional specification, and a critic/verification report — into a numbered set of Markdown files that together describe the analyzed system from both business and technical perspectives.
+
+### `automated code documentation / repository analysis pipeline output (target subject: quadtree-based geolocation system)`
+
+- **ac867df2-d266-4fbc-9a56-28912a9cbe7f** — This module is an isolated documentation output directory containing the full set of generated artifacts from a single documentation-generation run (identified by UUID `ac867df2-d266-4fbc-9a56-28912a9cbe7f`) against a quadtree-geolocation Java repository. It captures the end-to-end pipeline output across distinct phases: run metadata (`00-run-summary`), consolidated analysis result (`01-selected-result`), repository ingestion (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics inference (`05-business-semantics`), functional specification documentation (`06-documentation`), diagram generation report (`07-diagrams`), and critic/verification with confidence scoring (`08-critic`). As an isolated leaf module with no graph fan-in or fan-out, it functions purely as a deliverable artifact bundle rather than a code dependency.
+
+### `automated code documentation / repository analysis reporting`
+
+- **ae442353-f477-4c46-9abc-157eb460184f** — This module is an isolated documentation output directory containing the complete artifacts of a single automated documentation-generation run (identified by UUID `ae442353-f477-4c46-9abc-157eb460184f`). It aggregates sequentially numbered Markdown deliverables that walk from run metadata (`00-run-summary`) through repository ingestion, static analysis, runtime inference, business semantics interpretation, final functional specification, and a critic-based quality review. Together these files constitute the end-to-end analysis report for a target repository, intended for human consumption rather than programmatic import.
+
+### `automated code documentation generation / repository analysis output (subject repo: quadtree-geolocation)`
+
+- **b2d8d2cb-f4c8-405a-ab26-8a2f6b0fe598** — This module is an isolated documentation output directory containing the complete generated analysis artifacts for a single documentation run (ID b2d8d2cb-f4c8-405a-ab26-8a2f6b0fe598) targeting the quadtree-geolocation repository. It aggregates the multi-stage pipeline outputs into sequentially numbered Markdown files covering run metadata, ingestion results, static analysis, runtime inference, business semantics, final functional specification documentation, diagram generation results, and a critic verification report. The directory represents the end-to-end deliverable of an automated code analysis and documentation generation system, with each file capturing a distinct phase of the analysis workflow.
+
+### `automated code documentation generation / repository analysis pipeline output (analyzing a quadtree geolocation visualization subject system)`
+
+- **b6531516-c93c-4826-af47-74bc7949ec36** — This module is an isolated output artifact directory containing the complete generated documentation deliverables for a single analysis run (identified by UUID b6531516-c93c-4826-af47-74bc7949ec36) of a quadtree-based geolocation visualization system. It aggregates the sequential pipeline outputs — run metadata, ingestion report, static analysis, runtime inference, business semantics, consolidated documentation, and critic verification — into numbered Markdown files representing each stage of an automated documentation generation workflow.
+
+### `automated code/repository analysis and documentation generation pipeline output (target domain: quadtree-based geolocation)`
+
+- **eafeaf72-cba4-4d80-ac1f-4fc7b04cc96d** — This module is an isolated, terminal artifact directory containing the complete output of an automated repository analysis run (run ID `eafeaf72-cba4-4d80-ac1f-4fc7b04cc96d`) for the `quadtree-geolocation` GitHub repository. It aggregates the sequential stages of a documentation pipeline: run metadata (`00-run-summary`), selected results (`01-selected-result`), ingestion cataloging (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics extraction (`05-business-semantics`), functional specification documentation (`06-documentation`), generated diagrams (`07-diagrams`), and critic-based verification of the produced documentation (`08-critic`). Together these markdown files form a layered, end-to-end record progressing from raw repo signals through architectural and business interpretation to final documentation and quality review.
+
+### `automated code/repository documentation and analysis pipeline output`
+
+- **f98e26cf-c2f8-4988-853d-25722a971621** — This module is an isolated documentation output directory containing the complete artifacts of a single documentation-generation run (identified by run ID `f98e26cf-c2f8-4988-853d-25722a971621`). It aggregates sequential pipeline stages — run metadata, selected analysis result, repository ingestion, static code analysis, runtime inference, business semantics extraction, final functional specification documentation, and a critic verification report — into numbered Markdown files that together constitute a comprehensive reverse-engineered specification of an analyzed repository.
+
+### `automated codebase analysis and documentation generation output`
+
+- **f540a172-bf8b-4bd9-80eb-9851adf6f498** — This module is an isolated output artifact directory containing the generated documentation for a single repository analysis run (ID `f540a172-bf8b-4bd9-80eb-9851adf6f498`). It collects sequentially numbered Markdown reports covering the full analysis pipeline: run metadata (`00-run-summary`), the selected final result (`01-selected-result`), repository ingestion findings (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics (`05-business-semantics`), consolidated functional specification documentation (`06-documentation`), and a critic verification report (`07-critic`). It serves as the final human-readable deliverable of an automated codebase analysis workflow, with no inbound or outbound code dependencies.
+
+### `automated codebase documentation generation (analysis pipeline output for a quadtree visualization application)`
+
+- **8cedd601-607c-4234-aede-445c1816e1ca** — This module is an isolated output directory containing the generated documentation artifacts for a single documentation-generation run (run ID `8cedd601-607c-4234-aede-445c1816e1ca`) over a quadtree-graphic Java application. It captures every stage of the documentation pipeline as sequential markdown reports: run metadata, selected result, ingestion analysis, static analysis, runtime inference, business semantics, final functional specification, and a critic quality assessment. Together these files form a self-contained, end-to-end documentation deliverable describing the target codebase's architecture, modules, business capabilities, workflows, and identified gaps.
+
+### `automated documentation generation pipeline output / artifact storage`
+
+- **0520f421-3584-4a75-8b04-97cbcf45f5f7** — This module is an isolated output artifact directory containing the complete set of documentation generation artifacts for a single documentation run (run ID `0520f421-3584-4a75-8b04-97cbcf45f5f7`). It captures each stage of an automated repository documentation pipeline — from initial run metadata (`00-run-summary.md`), through repository ingestion (`02-ingestion.md`), static code analysis (`03-static-analysis.md`), runtime inference (`04-runtime-inference.md`), business semantics extraction (`05-business-semantics.md`), final functional specification documentation (`06-documentation.md`), critic-based quality verification (`07-critic.md`), and the selected final result (`01-selected-result.md`). The directory functions as a write-only deliverable bundle and has no inbound or outbound code dependencies.
+
+### `automated documentation generation pipeline output / code analysis reports`
+
+- **3ce1bc1d-a150-4697-9858-2d0728b2b3ea** — This module is an output artifact directory containing the generated documentation deliverables for a single pipeline run (ID `3ce1bc1d-a150-4697-9858-2d0728b2b3ea`). It aggregates the staged results of a multi-phase documentation generation workflow — run metadata (`00-run-summary`), the selected functional specification (`01-selected-result`), repository ingestion profile (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics analysis (`05-business-semantics`), the consolidated functional specification (`06-documentation`), and a critic/verification review (`07-critic`). The directory is isolated in the dependency graph (no fan-in/fan-out), reflecting that it consists purely of generated Markdown reports rather than executable code. Several phases (runtime, business semantics, documentation) note insufficient signals were extracted, indicating this run analyzed a repository where behavioral and domain context could not be confidently inferred.
+
+### `automated repository documentation / code analysis pipeline output`
+
+- **8931b3bf-b929-4471-b7fa-c042ea95bf72** — This module is an isolated output artifact directory containing the complete documentation generation pipeline results for the `quadtree-geolocation` repository (run ID 8931b3bf-b929-4471-b7fa-c042ea95bf72). It aggregates sequentially numbered markdown reports covering each pipeline stage: run metadata (`00-run-summary`), consolidated results (`01-selected-result`), repository ingestion (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics extraction (`05-business-semantics`), functional specification documentation (`06-documentation`), architecture diagrams (`07-diagrams`), and quality verification/criticism (`08-critic`). The directory serves as the persisted, human-readable deliverable bundle from analyzing a single target repository.
+
+### `automated repository documentation / code analysis pipeline output (analyzed subject domain: quadtree-based geolocation)`
+
+- **976d4bea-3fa4-47bf-8b6d-3c704c4fd0f8** — This module is an isolated documentation output directory containing the full set of generated analysis artifacts for a single pipeline run (Run ID: 976d4bea-3fa4-47bf-8b6d-3c704c4fd0f8) targeting a Java-based quadtree-graphic geolocation repository. It aggregates sequential reports covering run metadata, ingestion findings, static analysis, runtime inference, business semantics, functional documentation, diagram generation, and critic verification — together forming a complete, self-contained record of an automated repository analysis with `intent: full-analysis`. Several phases (static analysis, runtime inference, business semantics, diagrams) report insufficient evidence, which the critic report (`08-critic.md`) flags for remediation.
+
+### `automated repository documentation / code analysis report artifact`
+
+- **fb10ebfe-68d8-41f6-9441-0d2f9923d063** — This module is an isolated output artifact directory containing the generated documentation for a single analysis run (Run ID `fb10ebfe-68d8-41f6-9441-0d2f9923d063`). It captures the full pipeline output of a repository documentation generation process, organized as a sequence of numbered Markdown reports: run metadata (`00-run-summary`), selected analysis result (`01-selected-result`), repository ingestion findings (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics mapping (`05-business-semantics`), the consolidated functional specification (`06-documentation`), and a critic/verification report (`07-critic`). It is a standalone deliverable with no code dependencies.
+
+### `build tooling / gradle wrapper configuration`
+
+- **wrapper** — Provides the Gradle Wrapper configuration for the quadtree-graphic project, pinning the build to Gradle 4.0 via `gradle-wrapper.properties` so that builds run consistently across environments without requiring a locally installed Gradle. This module is isolated in the dependency graph and acts purely as build-tooling configuration.
+
+### `build tooling / quadtree graphics application`
+
+- **quadtree-graphic** — Provides the Gradle build scaffolding for an isolated `quadtree-graphic` project, including the Java plugin configuration with JUnit testing (`build.gradle`), the project naming (`settings.gradle`), and the cross-platform Gradle wrapper scripts (`gradlew`, `gradlew.bat`) used to bootstrap and execute builds on Unix and Windows. As an isolated module with no fan-in or fan-out dependencies, it stands alone as a self-contained build harness.
+
+### `code analysis / automated documentation generation pipeline output (analyzed subject domain: quadtree-based geolocation)`
+
+- **fe71554f-60d7-4738-bc59-e4c1a98be1e0** — This module is an output artifact directory containing the complete generated analysis report for a single code analysis run (run ID `fe71554f-60d7-4738-bc59-e4c1a98be1e0`) targeting a quadtree geolocation repository. It aggregates the staged outputs of a multi-phase documentation pipeline — run metadata (`00-run-summary`), consolidated results (`01-selected-result`), repository ingestion and tech-stack profiling (`02-ingestion`), static analysis with symbol/dependency graphs and API catalog (`03-static-analysis`), runtime behavior inference including sequence flows and state transitions (`04-runtime-inference`), business semantics and actor mapping (`05-business-semantics`), the final functional specification documentation (`06-documentation`), diagram generation log (`07-diagrams`), and a critic-style quality assessment (`08-critic`). As an isolated leaf in the dependency graph, it produces no code and is consumed by human readers rather than other modules.
+
+### `code analysis / automated documentation generation pipeline output (target domain: quadtree-based geolocation)`
+
+- **27c31699-7abf-457b-a087-532f24fa07c1** — This module is an isolated output artifact directory containing the complete generated documentation for a single analysis run (ID `27c31699-7abf-457b-a087-532f24fa07c1`) of a quadtree-geolocation application repository. It bundles the sequential pipeline outputs — run metadata, selected result, ingestion profile, static analysis, runtime inference, business semantics, synthesized documentation, and critic verification — into one self-contained set of Markdown reports for stakeholder consumption.
+
+### `code analysis / automated repository documentation output`
+
+- **4fa81b64-5268-4b7c-9fb8-3da7b6320406** — This module is an isolated documentation output directory containing the generated artifacts of a single repository analysis run (ID `4fa81b64-5268-4b7c-9fb8-3da7b6320406`). It aggregates the full pipeline output across stages: run metadata (`00-run-summary.md`), selected analysis results (`01-selected-result.md`), ingestion findings (`02-ingestion.md`), static analysis (`03-static-analysis.md`), runtime inference (`04-runtime-inference.md`), business semantics (`05-business-semantics.md`), functional specification documentation (`06-documentation.md`), diagrams (`07-diagrams.md`), and critic/verification review (`08-critic.md`). For this particular run, most stages report insufficient evidence or missing signals, making the directory primarily a record of an inconclusive analysis attempt rather than substantive findings.
+
+### `code analysis / documentation generation output artifacts`
+
+- **c7f8292d-49c1-4fad-b076-01327fb153fe** — This module is an output artifact directory containing the generated documentation deliverables for a single repository analysis run (identified by UUID c7f8292d-49c1-4fad-b076-01327fb153fe). It collects sequentially numbered markdown reports covering the full analysis pipeline: run metadata (00), selected results (01), repository ingestion (02), static analysis (03), runtime inference (04), business semantics (05), functional specification documentation (06), diagram generation outcomes (07), and critic verification (08). The module is isolated in the dependency graph, serving purely as terminal output rather than consumed code.
+
+### `code analysis / repository documentation artifacts (analysis run output for a quadtree-geolocation project)`
+
+- **be8d9b5b-8af3-4346-b060-aa090902dcb9** — This module is an isolated documentation output directory containing the full analysis artifact set for a single pipeline run (ID `be8d9b5b-8af3-4346-b060-aa090902dcb9`) over the `quadtree-geolocation` repository. It collects the sequential outputs of an end-to-end code-analysis workflow: run metadata (`00-run-summary`), the consolidated selected result (`01-selected-result`), ingestion profiling (`02-ingestion`), static analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics inference (`05-business-semantics`), the final functional specification (`06-documentation`), a diagram-generation status report (`07-diagrams`, noting diagrams were skipped), and a critic/quality verification report (`08-critic`). Together these files form a layered narrative moving from raw repo signals up through architecture, domain semantics, and quality assessment for downstream consumption.
+
+### `code analysis / repository documentation generation pipeline output`
+
+- **81bfea4c-bca4-4354-a6af-42e79ce1d979** — This module is an isolated documentation output directory for a single analysis run (ID 81bfea4c-bca4-4354-a6af-42e79ce1d979) targeting the quadtree-geolocation Java repository. It aggregates the artifacts produced by a documentation/analysis pipeline: a run summary with metadata, the selected analysis result, the ingestion-phase findings (tech stack, module map, entry points, bounded contexts, architecture style, domain groups), and an error log capturing failures from the static-code-analysis-agent and verification-critic-agent stages.
+
+### `generated documentation / analysis artifacts for a quadtree-based geolocation system`
+
+- **1b36ab85-b4a9-4da8-9377-b95ee49e2fd7** — This module is an isolated, generated documentation artifact directory for the `quadtree-geolocation` repository (run id `1b36ab85-b4a9-4da8-9377-b95ee49e2fd7`). It bundles the sequential outputs of a multi-stage documentation pipeline — from run metadata (`00-run-summary`), selected analysis results (`01-selected-result`), repository ingestion (`02-ingestion`), static code analysis (`03-static-analysis`), runtime behavior inference (`04-runtime-inference`), business semantics extraction (`05-business-semantics`), consolidated functional specification (`06-documentation`), through to verification critique (`07-critic`). It contains no executable code or imports; each file is a standalone Markdown report intended for human consumption and downstream documentation review.
+
+### `generated documentation artifacts for a code analysis / reverse-engineering pipeline (target domain: spatial/geolocation visualization via quadtree)`
+
+- **f4132b71-0741-4e5a-930f-537bc1c02d24** — This module is an isolated output artifact directory containing the complete generated documentation deliverable for a single analysis run (ID `f4132b71-0741-4e5a-930f-537bc1c02d24`) of a quadtree-based geolocation visualization project. It bundles the sequential outputs of an automated documentation pipeline — run metadata, ingestion results, static analysis, runtime inference, business semantics, functional documentation, Mermaid diagrams, and critic verification — into numbered markdown files (`00-run-summary.md` through `08-critic.md`) that together form the consolidated `01-selected-result.md` report.
+
+### `generated documentation artifacts for a code analysis pipeline run (target domain: java quadtree geolocation)`
+
+- **e92d6139-d983-43b4-9b32-98b3be673553** — This module is a self-contained output directory holding the full set of generated analysis artifacts for a single documentation run (run id `e92d6139-d983-43b4-9b32-98b3be673553`) over a Java quadtree geolocation repository. It captures the end-to-end pipeline outputs as sequentially numbered Markdown files: run metadata (`00-run-summary`), selected analysis result (`01-selected-result`), ingestion (`02-ingestion`), static analysis (`03-static-analysis`), runtime inference (`04-runtime-inference`), business semantics (`05-business-semantics`), final functional documentation (`06-documentation`), architecture/domain diagrams (`07-diagrams`), and a critique/verification report (`08-critic`). It is an isolated artifact directory with no code dependencies — it is a terminal output consumed by humans or downstream reporting tools rather than imported by other modules.
+
+### `generated documentation artifacts for a quadtree-based spatial visualization / graphics application analysis run`
+
+- **2473916f-59c7-4f88-ae4b-4cc55ec6c04a** — This module is an output artifact directory for a single documentation-generation run (identified by UUID `2473916f-59c7-4f88-ae4b-4cc55ec6c04a`), containing the sequenced markdown deliverables produced by an automated repository analysis pipeline. It captures the full lifecycle of analyzing a quadtree-based graphics/spatial visualization application: from run metadata (`00-run-summary.md`), through ingestion and tech-stack profiling (`01-selected-result.md`, `02-ingestion.md`), static code analysis (`03-static-analysis.md`), runtime inference (`04-runtime-inference.md`), business semantics extraction (`05-business-semantics.md`), final functional documentation (`06-documentation.md`), Mermaid architecture diagrams (`07-diagrams.md`), and a self-critique pass (`08-critic.md`). The directory is isolated with no inbound or outbound code dependencies — it is terminal generated output rather than executable code.
+
+### `geospatial indexing / proximity search`
+
+- **Provides a self-contained quadtree spatial indexing core for geographic data** — Provides a self-contained quadtree spatial indexing core for geographic data. Defines the `Neighbour` abstraction for points with id and lat/lon coordinates (`NeighbourImpl`), recursive node subdivision and search via `QuadTreeNode`, and the public `QuadTree` facade for inserting points and querying neighbors within a kilometer-based radius. `QuadTreeConstants` centralizes minimum node size configuration and km-to-degree conversion. The module is isolated (no internal fan-in/fan-out), making it a standalone library suitable for embedding in spatial-search applications.
+
+### `geospatial indexing / quadtree spatial data structures`
+
+- **.** — Root-level repository metadata for a standalone quadtree-based geolocation data structure project. Contains the Apache 2.0 `LICENSE`, a `README.md` describing the quadtree implementation and its use for spatial/proximity queries on geographic data, and a `.gitignore` for version-control hygiene. This module is isolated in the dependency graph and provides no runtime code surface.
+
+### `interactive geospatial quadtree visualization (swing gui)`
+
+- **src** — Provides the top-level Swing application shell and rendering framework for the quadtree graphic visualizer. It bootstraps the JFrame (`Main`), runs a double-buffered game loop with pan/zoom input handling (`CanvasPanel`), defines the rendering abstractions (`Screen`, `Drawable`, `BaseObject`), and implements the concrete world-map quadtree visualization with random neighbor point generation and interactive search (`MainScreen`). This module is isolated in the dependency graph and serves as the standalone GUI driver layer that consumes the quadtree library internally.
+
+### `repository analysis / automated documentation generation pipeline output`
+
+- **adeda53c-0d7a-4aec-9ebe-b65a585c9af3** — This module is an output artifact directory containing the generated documentation deliverables for a single repository analysis run (identified by UUID `adeda53c-0d7a-4aec-9ebe-b65a585c9af3`). It captures the full multi-stage pipeline output as sequentially numbered markdown files: run metadata (`00-run-summary`), consolidated results (`01-selected-result`), ingestion findings (`02-ingestion`), static analysis (`03-static-analysis`), runtime inference (`04-runtime-inference`), business semantics extraction (`05-business-semantics`), functional documentation (`06-documentation`), diagram generation decisions (`07-diagrams`), and a critic review (`08-critic`). The analyzed target is a Python/FastAPI/Pydantic/SQLAlchemy layered-architecture codebase. As an isolated leaf directory with no inbound or outbound code dependencies, it functions purely as a generated reporting bundle rather than executable code.
+
+### `repository analysis / automated documentation generation pipeline output (subject repo: quadtree-based geolocation system)`
+
+- **742d0dce-e19d-45fb-9a93-f363ae6b600f** — This module is an isolated output artifact directory containing the generated documentation deliverables for a single repository analysis run (run id `742d0dce-e19d-45fb-9a93-f363ae6b600f`, targeting a Java-based quadtree geolocation system). It collects the staged outputs of an end-to-end documentation pipeline — run metadata, selected analysis result, ingestion overview, static analysis, runtime inference, business semantics, final functional specification, Mermaid diagrams, and critic/quality review — as a numbered sequence of Markdown files (`00-run-summary.md` through `08-critic.md`).
+
+### `repository analysis / code documentation generation pipeline output (target domain: geolocation via quadtree)`
+
+- **3cff911f-bcb2-4fe1-87d5-eb050623423f** — This module is an isolated, self-contained output directory containing the generated analysis artifacts for a single repository-analysis run (run id `3cff911f-bcb2-4fe1-87d5-eb050623423f`) targeting the `quadtree-geolocation` Java repository. It bundles the full pipeline output as sequentially numbered Markdown documents: run metadata (`00-run-summary`), the selected result snapshot (`01-selected-result`), ingestion findings (`02-ingestion`), static analysis (`03-static-analysis`), runtime inference (`04-runtime-inference`), business semantics (`05-business-semantics`), generated functional specification documentation (`06-documentation`), diagrams (`07-diagrams`), and a critic/verification report (`08-critic`). Several stages (runtime, business semantics, diagrams) explicitly record that no inferences could be drawn, while ingestion and static analysis carry the substantive technical findings. The module's purpose is to serve as a human-readable, audit-friendly record of one analysis pass.
+
+### `spatial data structure visualization (quadtree rendering)`
+
+- **quadtree** — Provides graphical/drawable extensions to a core quadtree data structure for visualization purposes. `DrawableQuadTree` subclasses `QuadTree` and `DrawableQuadTreeNode` subclasses `QuadTreeNode`, both implementing a `Drawable` interface to render node boundaries and contained neighbours as rectangles on a graphics context, with support for coordinate scaling and bounds.
+
+## Where to next
+
+- [Architecture](architecture.md) — the system Mermaid diagram and a module breakdown.
+- [Modules](modules/index.md) — every directory the ingestion agent treated as a unit, with its responsibility and public surface.
+- [Quality](quality.md) — observability into what the run captured (routes, entities, embeddings) and what it skipped.
